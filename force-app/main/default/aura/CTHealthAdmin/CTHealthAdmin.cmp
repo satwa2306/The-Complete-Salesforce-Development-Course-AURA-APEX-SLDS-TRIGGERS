@@ -1,7 +1,7 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome">
  <div class="container">
     <lightning:layout multipleRows="true">
-       <!-- Header Section -->
+       <!--- Header Section -->
         <lightning:layoutItem size="12">
             <c:CTHealthHeader/>
         </lightning:layoutItem>
