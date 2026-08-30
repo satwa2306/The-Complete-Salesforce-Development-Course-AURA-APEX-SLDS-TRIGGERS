@@ -1,0 +1,64 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="BoardPanelController">
+
+   
+
+       <aura:attribute name="modes" 
+       type="List" 
+       default="[
+    {'label': 'Easy', 'value': 'easy'},
+    {'label': 'Medium', 'value': 'medium'},
+    {'label': 'Hard', 'value': 'hard'},
+    ]"/>
+
+<aura:attribute  name="selectedmode" type="String"/>
+<aura:attribute name="disableButton" type="Boolean" default="true"/>
+<aura:handler event="c:ResultApplicationEvent" action="{!c.onResultHandler}"/>
+
+    <lightning:card  title="Word Shuffle"> 
+    <lightning:layout horizontalAlign="center" multipleRows="true">
+            <lightning:layoutItem  padding="around-small">
+                     <lightning:combobox name="gameMode" 
+                        label="gameMode" 
+                        value="{!v.selectedmode}" 
+                        aura:id="gameMode"
+                        variant="label-hidden"
+                        placeholder="Select Game Mode" 
+                        options="{! v.modes }"
+                        />
+        </lightning:layoutItem>
+
+         <lightning:layoutItem padding="around-small">
+            <lightning:button variant="brand" label="Start New Game"
+                                title="Start New Game" onclick="{!c.startgame}" />
+        </lightning:layoutItem>
+
+        <lightning:layoutItem padding="around-small">
+            <lightning:button variant="Neutral" label="Reshuffle" 
+                                title="Reshuffle" disabled="{!v.disableButton}" onclick="{!c.reshuffle}" />
+        </lightning:layoutItem>
+        
+
+        <lightning:layoutItem size="12">
+            <aura:if isTrue="{!(v.selectedmode != null)}">
+                <c:Board aura:id="startgame" mode="{!v.selectedmode}"></c:Board>
+            </aura:if>
+        </lightning:layoutItem>
+    </lightning:layout>
+   </lightning:card>
+  </aura:component>  
+  <!-- selected mode is : {!v.selectedmode} -->
+
+ 
+
+
+
+
+
+    
+
+    
+
+  
+
+
+

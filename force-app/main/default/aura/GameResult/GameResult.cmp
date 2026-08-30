@@ -1,0 +1,18 @@
+<aura:component controller="GameResultController" implements="flexipage:availableForAllPageTypes" >
+    <!-- Imports -->
+    <!-- <aura:import library="lightningcomponentdemo:mockdataFaker" property="mockdataLibrary"/> -->
+
+    <!-- attributes -->
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+
+    <!-- handlers-->
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    <aura:handler event="c:ResultApplicationEvent" action="{!c.onResultHandler}"/>
+
+
+    <!-- the container element determine the height of the datatable -->
+     <lightning:card>
+        <div class="slds-var-p-around_medium"><lightning:datatable keyField="id" data="{! v.data }" columns="{! v.columns }" hideCheckboxColumn="true"/></div>
+     </lightning:card>
+</aura:component>
