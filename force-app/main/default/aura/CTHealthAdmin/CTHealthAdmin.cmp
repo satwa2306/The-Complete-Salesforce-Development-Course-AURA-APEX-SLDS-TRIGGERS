@@ -1,17 +1,20 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome">
+ <aura:attribute name="HeaderTitle" type="string"/>   
+ <aura:attribute name="Scope" type="string"/>   
+
  <div class="container">
     <lightning:layout multipleRows="true">
        <!--- Header Section -->
         <lightning:layoutItem size="12">
-            <c:CTHealthHeader/>
+            <c:CTHealthHeader  HeaderTitle="{!v.HeaderTitle}" Scope="{!v.Scope}"/>
         </lightning:layoutItem>
         <!--- Tabset Section -->
         <lightning:layoutItem size="12">
-            <lightning:tabset variant="vertical">
-                <lightning:tab label="Person View" id="person_view">
+            <lightning:tabset onselect="{!c.tabselectHandler}" variant="vertical">
+                <lightning:tab label="Person View" id="person">
                     Person View Content
                 </lightning:tab>
-                <lightning:tab label="Location View" id="location_view">
+                <lightning:tab label="Location View" id="location">
                     Location View Content
                 </lightning:tab>
             </lightning:tabset>

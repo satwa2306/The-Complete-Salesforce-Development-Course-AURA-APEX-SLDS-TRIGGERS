@@ -1,3 +1,27 @@
-.THIS .slds-page-header {
-  background-color: #ffffff;
+
+.THIS header-item{
+ font-size: medium;
+ letter-spacing: 0.5px;
+ font-weight: bold;
+ text-transform: uppercase;
+ 
+
+}
+
+.THIS .green{
+ color: green;
+ font-weight: bold;
+}
+
+.THIS .yellow{
+color: #a9a953;
+font-weight: bold;
+}
+.THIS .orange{
+color: orange;
+font-weight: bold;
+}
+.THIS .red{
+ color: red;
+ font-weight: bold;
 }
