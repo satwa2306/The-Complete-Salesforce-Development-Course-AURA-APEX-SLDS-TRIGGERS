@@ -1,6 +1,13 @@
-<aura:component>
- <aura:attribute name="HeaderTitle" type="string"/>   
- <aura:attribute name="Scope" type="string"/>  
+<aura:component controller="CTHealthHeaderController">
+ <aura:attribute name="HeaderTitle" type="string" default="person"/>   
+ <aura:attribute name="Scope" type="string" default="Person View"/>  
+
+ <aura:attribute name="count" type="Object" default=""/>  
+
+ <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+ <aura:method name="fetchCount" action="{!c.doInit}" description=""/>
+
 <div class="slds-page-header slds-page-header_record-home">
                 <div class="slds-page-header__row">
                     <div class="slds-page-header__col-title">
@@ -23,7 +30,7 @@
                                             <span>Contact Tracing</span>
                                             <span class="slds-page-header__title slds-truncate" title="{!v.HeaderTitle}">
                                                 {!v.HeaderTitle}
-                                            </span>
+                                            </span> 
                                         </h1>
                                     </div>
                                 </div>
@@ -49,22 +56,22 @@
                         <ul class="slds-page-header__detail-row">
                             <li class="slds-page-header__detail-block">
                                 <div class="header-item green" title="Green">Green</div>
-                                <div class="header-item green" title="1">1</div>
+                                <div class="header-item green" title="">{!v.count.Green}</div>
                             </li>
 
                             <li class="slds-page-header__detail-block">
                                 <div class="header-item yellow" title="Yellow">Yellow</div>
-                                <div class="header-item yellow" title="2">2</div>
+                                <div class="header-item yellow" title="">{!v.count.Yellow}</div>
                             </li>
 
                             <li class="slds-page-header__detail-block">
                                 <div class="header-item orange" title="Orange">Orange</div>
-                                <div class="header-item orange" title="3">3</div>
-                            </li>
+                                <div class="header-item orange" title="">{!v.count.Orange}</div>
+                            </li>   
 
                             <li class="slds-page-header__detail-block">
                                 <div class="header-item red" title="Red">Red</div>
-                                <div class="header-item red" title="4">4</div>
+                                <div class="header-item red" title="">{!v.count.Red}</div>
                             </li>
                         </ul>
                     </div>

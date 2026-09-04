@@ -10,5 +10,11 @@
 
         }
         component.set("v.Scope",selectid);
+
+        const healthheader=component.find("health-header");
+        healthheader.fetchCount();
+
     }
+
+
 })

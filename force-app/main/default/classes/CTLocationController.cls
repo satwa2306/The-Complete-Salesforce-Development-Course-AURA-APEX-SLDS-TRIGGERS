@@ -98,6 +98,23 @@ public with sharing class CTLocationController {
         
 
     }
+
+            public static Map<String,Integer> getHealthStatusCountHeader() {
+            AggregateResult[] statusCountPersonHealth=[SELECT Status__c, count(id) total FROM Location__c GROUP BY Status__c];
+
+             Map<String,Integer> result=new Map<String,Integer>();
+
+            if(statusCountPersonHealth !=null && statusCountPersonHealth.size()>0){
+            for(AggregateResult ar:statusCountPersonHealth){
+
+              result.put(String.valueOf(ar.get('Status__c')),Integer.valueOf(ar.get('total')));
+
+            }
+            return result;
+    }
+    return null;
+  }  
+    
 }
 
 
