@@ -7,4 +7,4 @@
         component.set("v.status",status);
 
     }
-})
+})  

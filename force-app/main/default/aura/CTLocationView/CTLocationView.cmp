@@ -7,8 +7,8 @@
     <aura:if isTrue="{! !empty(v.recordId)}">
     <div class="{!v.status + ' location-card'}">
         <lightning:recordForm
-  recordId="001XXXXXXXXXXXXXXX"
-  objectApiName="Loaction__c"
+  recordId="{!v.recordId}"
+  objectApiName="Location__c"
   fields="{!v.fields}"
   columns="1"
   mode="readonly"
