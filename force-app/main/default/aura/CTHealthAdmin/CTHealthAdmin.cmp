@@ -1,6 +1,4 @@
-
-<aura:component 
-    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome">
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome">
 
     <aura:attribute name="HeaderTitle" type="string"/>
     <aura:attribute name="Scope" type="string"/>
@@ -9,7 +7,6 @@
 
         <lightning:layout multipleRows="true">
 
-            <!-- Header Section -->
             <lightning:layoutItem size="12">
 
                 <c:CTHealthHeader
@@ -20,68 +17,28 @@
 
             </lightning:layoutItem>
 
-
-            <!-- Tabset Section -->
             <lightning:layoutItem size="12">
 
                 <lightning:tabset
                     onselect="{!c.tabselectHandler}"
-                    variant="vertical"
-                >
+                    variant="vertical">
 
-                    <!-- PERSON VIEW -->
-                    <lightning:tab
-                        label="Person View"
-                        id="person"
-                    >
-
+                    <lightning:tab label="Person View" id="person">
                         <lightning:layout>
-
-                            <lightning:layoutItem size="8">
-
-                                <c:CTRecentChanges
-                                    scope="person"
-                                />
-
+                            <lightning:layoutItem size="8" padding="horizontal-small">
+                                <c:CTRecentChanges scope="person" />
                             </lightning:layoutItem>
-
-                            <lightning:layoutItem size="4">
-
-                                <!-- Person detail component can go here -->
-
-                            </lightning:layoutItem>
-
-                        </lightning:layout>
-
+                            <lightning:layoutItem size="4" padding="horizontal-small"> <!-- <c:CTPersonView /> --> </lightning:layoutItem
+                        ></lightning:layout>
                     </lightning:tab>
-
-
-                    <!-- LOCATION VIEW -->
-                    <lightning:tab
-                        label="Location View"
-                        id="location"
-                    >
-
+                    <lightning:tab label="Location View" id="location">
                         <lightning:layout>
-
-                            <lightning:layoutItem size="8">
-
-                                <c:CTRecentChanges
-                                    scope="location"
-                                />
-
+                            <lightning:layoutItem size="8" padding="horizontal-small">
+                                <c:CTRecentChanges scope="location" />
                             </lightning:layoutItem>
-
-                            <lightning:layoutItem size="4">
-
-                                <c:CTLocationView />
-
-                            </lightning:layoutItem>
-
-                        </lightning:layout>
-
+                            <lightning:layoutItem size="4" padding="horizontal-small"> <c:CTLocationView /> </lightning:layoutItem
+                        ></lightning:layout>
                     </lightning:tab>
-
                 </lightning:tabset>
 
             </lightning:layoutItem>
@@ -91,4 +48,3 @@
     </div>
 
 </aura:component>
-
