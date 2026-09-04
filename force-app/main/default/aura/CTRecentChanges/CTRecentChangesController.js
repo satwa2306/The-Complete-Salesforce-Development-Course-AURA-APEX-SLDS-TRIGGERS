@@ -61,7 +61,7 @@
     handleRowAction: function (component, event, helper) {
         const action = event.getParam("action");
         const row = event.getParam("row");
-        const scope = component.get("v.Scope");
+        const scope = component.get("v.scope");
 
         switch (action.name) {
             case "view_details":
