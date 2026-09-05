@@ -6,10 +6,7 @@ public with sharing class CTLocationTracingController {
      * @return List<Location_Tracing__c>
      */
     public static List<Location_Tracing__c> getVistors(String locationId){
-        return [SELECT Id, Person__c, Location__c, Visit_Date__c, Person__r.Token__c, Person__r.Health_Status__c 
-                    FROM Location_Tracing__c 
-                    WHERE Id =: locationId
-                    ORDER BY Visit_Date__c DESC ];
+        return [SELECT Id, Person__c, Location__c, Visit_Date__c, Person__r.Token__c, Person__r.Health_Status__c FROM Location_Tracing__c WHERE Location__c = :locationId ORDER BY Visit_Date__c DESC ];
     }
 
     /**

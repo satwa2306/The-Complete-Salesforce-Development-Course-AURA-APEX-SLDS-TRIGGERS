@@ -26,6 +26,7 @@ public with sharing class CTPersonController {
             return  [SELECT id,Health_Status__c,Mobile__c,Name,Status_Update_Date__c,Token__c FROM Person__c WHERE Name LIKE :searchterm or Mobile__c LIKE :searchterm or Token__c LIKE :searchterm  ORDER BY Status_Update_Date__c DESC NULLS LAST];
         
              }
+    
              public static Person__c getPersonId(string personid) {
                  
                  
@@ -39,17 +40,6 @@ public with sharing class CTPersonController {
                  }
                  
                  return null;
-
-
-
-
-                 
-             
-
-            //return  [SELECT id,Health_Status__c,Mobile__c,Name,Status_Update_Date__c,Token__c FROM Person__c WHERE Id =:personid];
-
-                
-               
 
             }
 

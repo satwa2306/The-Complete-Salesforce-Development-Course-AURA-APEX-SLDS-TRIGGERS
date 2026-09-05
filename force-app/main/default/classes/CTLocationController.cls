@@ -36,10 +36,10 @@ public with sharing class CTLocationController {
      * @return Location__c
      */
     public static Location__c getLocationById(String locationId){
-        List<Location__c> locations = [SELECT Id, Name, Address__c, Pincode__c, Red_Score__c, 
-        Status_Update_Date__c, Status__c
-                    FROM Location__c
+        List<Location__c> locations = [SELECT Id, Name, Address__c, Pincode__c, Red_Score__c, Status_Update_Date__c, Status__c 
+                    FROM Location__c 
                     WHERE Id =: locationId];
+                    
         if(locations != null && locations.size() > 0){
             return locations[0];
         }

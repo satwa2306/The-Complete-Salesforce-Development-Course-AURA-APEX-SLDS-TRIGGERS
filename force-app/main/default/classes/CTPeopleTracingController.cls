@@ -1,10 +1,10 @@
 public with sharing class CTPeopleTracingController {
-    public list<People_Tracing__c> getTraces(string recordid) {
+    public static list<People_Tracing__c> getTraces(string recordid) {
 
-         return [SELECT id,name,Contact_Date__c,Contact_Type__c,Person_1__c,Person_2__c 
-                                    from People_Tracing__c 
-                                    where Person_1__c=:recordid or Person_2__c=:recordid  
-                                    ORDER By Contact_Date__c DESC];
+         return [SELECT Id, Contact_Date__c, Person_1__c, Person_1__r.Health_Status__c, Person_1__r.Token__c, Person_2__c, Person_2__r.Health_Status__c, Person_2__r.Token__c
+            FROM People_Tracing__c
+            WHERE (Person_1__c = :recordid OR Person_2__c = :recordid) AND Contact_Date__c = LAST_N_DAYS:30
+            ORDER BY Contact_Date__c DESC];
 
 
         
